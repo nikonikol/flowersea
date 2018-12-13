@@ -11,6 +11,7 @@ var fs=require('fs')
 var express=require('express')
 var Student=require('./student')
 var Userinformation=require('./login')
+var Data=require('./data')
 
 //1.创建一个路由容器
 var router=express.Router()
@@ -83,6 +84,26 @@ router.post('/signin', function(req,res){
         }
         else{
             console.log('注册成功')
+            console.log(ret)
+            res.redirect('/login')
+        }
+       
+    })
+
+})
+router.get('/zhuce', function(req,res){
+    new Data({
+        dataname:"at",
+        data:"0",
+        datatime:"2018-07-06 21:12:59.856"
+    }).save(function(err,ret){
+        if(err){
+            console.log('数据添加失败')
+            console.log(ret)
+
+        }
+        else{
+            console.log('数据添加成功')
             console.log(ret)
             res.redirect('/login')
         }
