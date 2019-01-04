@@ -19,4 +19,6 @@ var userdata =new Schema ({
     }
 })
 
-module.exports=mongoose.model('Userdata',userdata)
+module.exports=mongoose.model('Userdata',userdata )
+
+

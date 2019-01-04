@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>凯盛软件CRM-首页</title>
     <!-- Tell the browser to be responsive to screen width -->
@@ -15,6 +17,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="/public/dist/css/skins/_all-skins.min.css">
+    <script src="/node_modules/echarts/lib/echarts.js"></script>
     <style>
         .td_title {
             font-weight: bold;
@@ -27,132 +30,133 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
-<!-- Site wrapper -->
-<div class="wrapper">
+    <!-- Site wrapper -->
+    <div class="wrapper">
 
-    <!-- 顶部导航栏部分 -->
-    <header class="main-header">
-        <!-- Logo -->
-        <a href="index2.html" class="logo">
-            <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>监测</b></span>
-            <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>水质</b>检测</span>
-        </a>
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top">
-            <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+        <!-- 顶部导航栏部分 -->
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="index2.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>监测</b></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>水质</b>检测</span>
             </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
 
-            <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-                    <!-- User Account: style can be found in dropdown.less -->
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <span class="hidden-xs">梁师傅</span>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <span class="hidden-xs">梁师傅</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                                    <p>
+                                        梁师傅
+                                        <small>颜值担当</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="/profile" class="btn btn-default btn-flat">个人设置</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="/logout" class="btn btn-default btn-flat">安全退出</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- =============================================== -->
+
+        <!-- 左侧菜单栏 -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- 菜单 -->
+                <ul class="sidebar-menu">
+                    <li class="header">系统功能</li>
+                    <!-- 客户管理 -->
+                    <li class="treeview active">
+                        <a href="#">
+                            <i class="fa fa-address-book-o"></i> <span>用户管理</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <!-- User image -->
-                            <li class="user-header">
-                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                                <p>
-                                    梁师傅
-                                    <small>颜值担当</small>
-                                </p>
-                            </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="/profile" class="btn btn-default btn-flat">个人设置</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="/logout" class="btn btn-default btn-flat">安全退出</a>
-                                </div>
-                            </li>
+                        <ul class="treeview-menu">
+                            <li class="active"><a href="/customer/my"><i class="fa fa-circle-o"></i> 我的账号</a></li>
+                            <li><a href="/customer/public"><i class="fa fa-circle-o"></i> 用户管理</a></li>
                         </ul>
                     </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
-    <!-- =============================================== -->
-
-    <!-- 左侧菜单栏 -->
-    <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-            <!-- 菜单 -->
-            <ul class="sidebar-menu">
-                <li class="header">系统功能</li>
-                <!-- 客户管理 -->
-                <li class="treeview active">
-                    <a href="#">
-                        <i class="fa fa-address-book-o"></i> <span>用户管理</span>
-                        <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li class="active"><a href="/customer/my"><i class="fa fa-circle-o"></i> 我的账号</a></li>
-                        <li><a href="/customer/public"><i class="fa fa-circle-o"></i> 用户管理</a></li>
-                    </ul>
-                </li>
-                <!-- 工作记录 -->
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-bars"></i> <span>监测记录</span>
-                        <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="/recode/my"><i class="fa fa-circle-o"></i> 历史数据</a></li>
-                        <li><a href="/recode/public"><i class="fa fa-circle-o"></i> 查询数据</a></li>
-                    </ul>
-                </li>
-                <!-- 待办事项 -->
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-calendar"></i> <span>待办事项</span>
-                        <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="/task"><i class="fa fa-circle-o"></i> 待办列表</a></li>
-                        <li><a href=""><i class="fa fa-circle-o"></i> 逾期事项</a></li>
-                    </ul>
-                </li>
-                <!-- 统计报表 -->
-                <li class="treeview">
-                    <a href="/index">
-                        <i class="fa fa-pie-chart"></i> <span>统计报表</span>
-                        <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <!-- <li><a href="../../index.html"><i class="fa fa-circle-o"></i> 待办列表</a></li>
+                    <!-- 工作记录 -->
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-bars"></i> <span>监测记录</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/recode/my"><i class="fa fa-circle-o"></i> 历史数据</a></li>
+                            <li><a href="/recode/public"><i class="fa fa-circle-o"></i> 查询数据</a></li>
+                        </ul>
+                    </li>
+                    <!-- 待办事项 -->
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-calendar"></i> <span>待办事项</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/task"><i class="fa fa-circle-o"></i> 待办列表</a></li>
+                            <li><a href=""><i class="fa fa-circle-o"></i> 逾期事项</a></li>
+                        </ul>
+                    </li>
+                    <!-- 统计报表 -->
+                    <li class="treeview">
+                        <a href="/index">
+                            <i class="fa fa-pie-chart"></i> <span>统计报表</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <!-- <li><a href="../../index.html"><i class="fa fa-circle-o"></i> 待办列表</a></li>
                         <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> 逾期事项</a></li> -->
-                        <li><a href="https://www.hcharts.cn/"><i class="fa fa-circle-o"></i> highchars</a></li>
-                        <li><a href="http://echarts.baidu.com/"><i class="fa fa-circle-o"></i> echars</a></li>
-                    </ul>
-                </li>
+                            <li><a href="https://www.hcharts.cn/"><i class="fa fa-circle-o"></i> highchars</a></li>
+                            <li><a href="http://echarts.baidu.com/"><i class="fa fa-circle-o"></i> echars</a></li>
+                        </ul>
+                    </li>
 
 
-                <li><a href="../../documentation/index.html"><i class="fa fa-share-alt"></i> <span>公司网盘</span></a></li>
-                <li class="header"></li>
-                <!-- 部门员工管理 -->
-                <!-- <li class="treeview">
+                    <li><a href="../../documentation/index.html"><i class="fa fa-share-alt"></i> <span>公司网盘</span></a></li>
+                    <li class="header"></li>
+                    <!-- 部门员工管理 -->
+                    <!-- <li class="treeview">
                     <a href="#">
                         <i class="fa fa-users"></i> <span>组织架构</span>
                         <span class="pull-right-container">
@@ -164,121 +168,246 @@
                         <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> 员工管理</a></li>
                     </ul>
                 </li> -->
-                <!--<li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
+                    <!--<li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
                 <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>-->
-            </ul>
-        </section>
-        <!-- /.sidebar -->
-    </aside>
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
 
-    <!-- =============================================== -->
+        <!-- =============================================== -->
 
-    <!-- 右侧内容部分 -->
-    <div class="content-wrapper" id="content">
-        <!-- Main content -->
-        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
-        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
-        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
-        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
-        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
-        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
-        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
-        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
-        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
-        <script>
-        var dom = document.getElementById("content");
-var myChart = echarts.init(dom);
-var app = {};
-option = null;
-var base = +new Date(2014, 9, 3);
-var oneDay = 24 * 3600 * 1000;
-var date = [];
+        <!-- 右侧内容部分 -->
 
-var data = [Math.random() * 150];
-var now = new Date(base);
+        <div class="content-wrapper" id="content">
 
-function addData(shift) {
-    now = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/');
-    date.push(now);
-    data.push((Math.random() - 0.4) * 10 + data[data.length - 1]);
 
-    if (shift) {
-        date.shift();
-        data.shift();
-    }
 
-    now = new Date(+new Date(now) + oneDay);
-}
+            <!-- Main content -->
+            <!-- jQuery 2.2.3 -->
+            <script src="/public/plugins/jQuery/jquery-2.2.3.min.js"></script>
+            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+            <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+            <script>
+                alert("开始")
+                $.ajax({
+                    url: "datarefresh",
+                    success: function (result) {
+                        alert(result)
+                    }
+                });
 
-for (var i = 1; i < 100; i++) {
-    addData();
-}
+                //获取数据
+                var data = "{{mongodbdata}}"
+                data = data.substring(1, data.length - 1)
+                data = data.split('data&#34;:')
+                var daarr = []
+                for (var i = 1; i < data.length; i++) {
+                    var da = data[i].split(',')
+                    daarr.push(da[0])
+                }
+                //获取时间
+                var datatime = "{{mongodbdata}}"
+                datatime = datatime.substring(1, datatime.length - 1)
+                var datatime = datatime.split('datatime')
+                var dearr = []
+                for (var i = 1; i < datatime.length; i++) {
+                    var de = datatime[i].split('&#34;')
+                    dearr.push(de[2])
+                }
 
-option = {
-    xAxis: {
-        type: 'category',
-        boundaryGap: false,
-        data: date
-    },
-    yAxis: {
-        boundaryGap: [0, '50%'],
-        type: 'value'
-    },
-    series: [
-        {
-            name:'成交',
-            type:'line',
-            smooth:true,
-            symbol: 'none',
-            stack: 'a',
-            areaStyle: {
-                normal: {}
-            },
-            data: data
-        }
-    ]
-};
+                var dom = document.getElementById("content");
+                var myChart = echarts.init(dom);
+                var app = {};
+                option = null;
+                var base = +new Date(2018, 7, 3);
+                var oneDay = 24 * 3600 * 1000;
+                var date = [];
 
-setInterval(function () {
-    addData(true);
-    myChart.setOption({
-        xAxis: {
-            data: date
-        },
-        series: [{
-            name:'成交',
-            data: data
-        }]
-    });
-}, 500);;
-if (option && typeof option === "object") {
-    myChart.setOption(option, true);
-}
-        </script>
-    </div>
-    <!-- /.content-wrapper -->
+                var data = [Math.random() * 150];
+                var now = new Date(base);
 
-    <!-- 底部 -->
-    <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-            <b>Version</b> 1.0
+                function addData(shift) {
+                    now = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/');
+                    date.push(now);
+                    data.push((Math.random() - 0.4) * 10 + data[data.length - 1]);
+
+                    if (shift) {
+                        date.shift();
+                        data.shift();
+                    }
+
+                    now = new Date(+new Date(now) + oneDay);
+                }
+
+                for (var i = 1; i < 100; i++) {
+                    addData();
+                }
+
+                option = {
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: dearr
+                    },
+                    yAxis: {
+                        boundaryGap: [0, '50%'],
+                        type: 'value'
+                    },
+                    series: [{
+                        name: '成交',
+                        type: 'line',
+                        smooth: true,
+                        symbol: 'none',
+                        stack: 'a',
+                        areaStyle: {
+                            normal: {}
+                        },
+                        data: daarr
+                    }]
+                };
+
+                setInterval(function () {
+                    addData(true);
+                    myChart.setOption({
+                        xAxis: {
+                            data: dearr
+                        },
+                        series: [{
+                            name: '成交',
+                            data: daarr
+                        }]
+                    });
+                }, 500);;
+                if (option && typeof option === "object") {
+                    myChart.setOption(option, true);
+                }
+            </script>
         </div>
-        <strong>Copyright &copy; 2018@ <a href="http://almsaeedstudio.com">水质监测系统</a>.</strong> All rights
-        reserved.
-    </footer>
 
-</div>
-<!-- ./wrapper -->
+        <!-- <div class="content-wrapper" id="content">
 
-<!-- jQuery 2.2.3 -->
-<script src="/public/plugins/jQuery/jquery-2.2.3.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="/public/js/bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="/public/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="/public/plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="/public/dist/js/app.min.js"></script>
+            <script>
+                //获取数据
+                var data = "{{mongodbdata}}"
+                data = data.substring(1, data.length - 1)
+                data = data.split('data&#34;:')
+                var daarr = []
+                for (var i = 1; i < data.length; i++) {
+                    var da = data[i].split(',')
+                    daarr.push(da[0])
+                }
+
+
+
+
+                //获取时间
+                var datatime = "{{mongodbdata}}"
+                datatime = datatime.substring(1, datatime.length - 1)
+                var datatime = datatime.split('datatime')
+                var dearr = []
+                for (var i = 1; i < datatime.length; i++) {
+                    var de = datatime[i].split('&#34;')
+                    dearr.push(de[2])
+                }
+            </script>
+
+
+            
+            <script src="/node_modules/echarts/lib/echarts.js">
+                var myChart = echarts.init(document.getElementById('content'));
+                var base = +new Date(2014, 9, 3);
+                var oneDay = 24 * 3600 * 1000;
+                var date = [];
+
+                var data = [Math.random() * 150];
+                var now = new Date(base);
+
+                function addData(shift) {
+                    now = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/');
+                    date.push(now);
+                    data.push((Math.random() - 0.4) * 10 + data[data.length - 1]);
+
+                    if (shift) {
+                        date.shift();
+                        data.shift();
+                    }
+
+                    now = new Date(+new Date(now) + oneDay);
+                }
+
+                for (var i = 1; i < 100; i++) {
+                    addData();
+                }
+
+                option = {
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: date
+                    },
+                    yAxis: {
+                        boundaryGap: [0, '50%'],
+                        type: 'value'
+                    },
+                    series: [{
+                        name: '成交',
+                        type: 'line',
+                        smooth: true,
+                        symbol: 'none',
+                        stack: 'a',
+                        areaStyle: {
+                            normal: {}
+                        },
+                        data: data
+                    }]
+                };
+
+                setInterval(function () {
+                    addData(true);
+                    myChart.setOption({
+                        xAxis: {
+                            data: date
+                        },
+                        series: [{
+                            name: '成交',
+                            data: data
+                        }]
+                    });
+                }, 500);
+            </script>
+
+        </div> -->
+        <!-- /.content-wrapper -->
+
+        <!-- 底部 -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0
+            </div>
+            <strong>Copyright &copy; 2018@ <a href="http://almsaeedstudio.com">水质监测系统</a>.</strong> All rights
+            reserved.
+        </footer>
+
+    </div>
+    <!-- ./wrapper -->
+
+    
+    <!-- Bootstrap 3.3.6 -->
+    <script src="/public/js/bootstrap.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="/public/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="/public/plugins/fastclick/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/public/dist/js/app.min.js"></script>
 </body>
+
 </html>
